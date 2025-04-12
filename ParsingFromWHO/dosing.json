@@ -1,0 +1,321 @@
+[
+    {
+        "antibiotic": "Amikacin",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "15-20",
+            "frequency": "every 24 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "15-20",
+            "frequency": "every 24 hrs"
+        }
+    },
+    {
+        "antibiotic": "Amoxicillin",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "80-100",
+            "frequency": "every 12 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "80-100",
+            "frequency": "every 12 hrs"
+        }
+    },
+    {
+        "antibiotic": "Amoxicillin + clavulanic acid",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "65-100 (amoxicillin component)",
+            "frequency": "every 12 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "65-100 (amoxicillin component)",
+            "frequency": "every 12 hrs"
+        }
+    },
+    {
+        "antibiotic": "Ampicillin",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "100-150",
+            "frequency": "every 8-12 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "80-100",
+            "frequency": "every 6-12 hrs"
+        }
+    },
+    {
+        "antibiotic": "Azithromycin",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "10",
+            "frequency": "every 24 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "10-20",
+            "frequency": "every 24 hrs"
+        }
+    },
+    {
+        "antibiotic": "Benzathine benzylpenicillin",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "See syphilis guidelines",
+            "frequency": ""
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "See syphilis guidelines",
+            "frequency": ""
+        }
+    },
+    {
+        "antibiotic": "Benzylpenicillin",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "80-100",
+            "frequency": "every 8-12 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "80-100",
+            "frequency": "every 6-12 hrs"
+        }
+    },
+    {
+        "antibiotic": "Cefalexin",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "50-100",
+            "frequency": "every 12 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "50-100",
+            "frequency": "every 12 hrs"
+        }
+    },
+    {
+        "antibiotic": "Cefazolin",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "50-100",
+            "frequency": "every 8-12 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "50-100",
+            "frequency": "every 8-12 hrs"
+        }
+    },
+    {
+        "antibiotic": "Cefixime",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "No suggestion",
+            "frequency": ""
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "8",
+            "frequency": "every 12-24 hrs"
+        }
+    },
+    {
+        "antibiotic": "Cefotaxime",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "50 (up to 200 in severe infection)",
+            "frequency": "every 6-12 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "100-150 (up to 200 in severe infection)",
+            "frequency": "every 6-12 hrs"
+        }
+    },
+    {
+        "antibiotic": "Ceftriaxone",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "50",
+            "frequency": "every 24 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "50-100",
+            "frequency": "every 24 hrs"
+        }
+    },
+    {
+        "antibiotic": "Ceftazidime",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "90-150",
+            "frequency": "every 8 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "90-150",
+            "frequency": "every 8 hrs"
+        }
+    },
+    {
+        "antibiotic": "Chloramphenicol",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "No suggestion",
+            "frequency": ""
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "50-100",
+            "frequency": "every 6-8 hrs"
+        }
+    },
+    {
+        "antibiotic": "Ciprofloxacin",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "20-30",
+            "frequency": "every 12 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "20-30",
+            "frequency": "every 12 hrs"
+        }
+    },
+    {
+        "antibiotic": "Clarithromycin",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "15",
+            "frequency": "every 12 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "15",
+            "frequency": "every 12 hrs"
+        }
+    },
+    {
+        "antibiotic": "Clindamycin",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "10-20",
+            "frequency": "every 6-8 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "20-40",
+            "frequency": "every 6-8 hrs"
+        }
+    },
+    {
+        "antibiotic": "Cloxacillin",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "50-100",
+            "frequency": "every 12 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "100-200",
+            "frequency": "every 6 hrs"
+        }
+    },
+    {
+        "antibiotic": "Doxycycline",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "No suggestion",
+            "frequency": ""
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "2-4",
+            "frequency": "every 12-24 hrs"
+        }
+    },
+    {
+        "antibiotic": "Gentamicin",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "5",
+            "frequency": "every 24 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "7",
+            "frequency": "every 24 hrs"
+        }
+    },
+    {
+        "antibiotic": "Meropenem",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "60",
+            "frequency": "every 8 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "60",
+            "frequency": "every 8 hrs"
+        }
+    },
+    {
+        "antibiotic": "Metronidazole",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "20-40",
+            "frequency": "every 8-12 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "20-40",
+            "frequency": "every 8-12 hrs"
+        }
+    },
+    {
+        "antibiotic": "Nitrofurantoin",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "No suggestion",
+            "frequency": ""
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "4",
+            "frequency": "every 6-12 hrs"
+        }
+    },
+    {
+        "antibiotic": "Phenoxymethylpenicillin",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "No suggestion",
+            "frequency": ""
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "100-200",
+            "frequency": "every 6-12 hrs"
+        }
+    },
+    {
+        "antibiotic": "Piperacillin-tazobactam",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "300-400 (piperacillin component)",
+            "frequency": "every 6-12 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "300-400 (piperacillin component)",
+            "frequency": "every 6-12 hrs"
+        }
+    },
+    {
+        "antibiotic": "Procaine benzylpenicillin",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "See syphilis guidelines",
+            "frequency": ""
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "See syphilis guidelines",
+            "frequency": ""
+        }
+    },
+    {
+        "antibiotic": "Spectinomycin",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "No suggestion",
+            "frequency": ""
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "No suggestion",
+            "frequency": ""
+        }
+    },
+    {
+        "antibiotic": "Trimethoprim + sulfamethoxazole",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "No suggestion",
+            "frequency": ""
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "8-12 (trimethoprim component)",
+            "frequency": "every 12 hrs"
+        }
+    },
+    {
+        "antibiotic": "Vancomycin",
+        "neonates": {
+            "dose_mg_per_kg_per_day": "40-60",
+            "frequency": "every 12 hrs"
+        },
+        "children": {
+            "dose_mg_per_kg_per_day": "40-60",
+            "frequency": "every 6-12 hrs"
+        }
+    }
+]
