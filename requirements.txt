@@ -9,7 +9,7 @@ datasets
 tqdm
 pydantic
 typing
-PIL
+Pillow
 numpy
 re
 cv2
