@@ -5,12 +5,11 @@ bs4
 torch
 torchvision
 transformers
-datasets
+datasets>=2.0.0
 tqdm
 pydantic
-typing
 Pillow
 numpy
-cv2
+opencv-python
 gtts
 audio_recorder_streamlit
