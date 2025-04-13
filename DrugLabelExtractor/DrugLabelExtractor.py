@@ -25,7 +25,8 @@ class DrugLabelExtractor:
     def __call__(self, image_path: str) -> dict:
         ocr_result = self.extract_from_file(image_path)
         if(len(re.sub(r"<[^>]+>", "", ocr_result["content"]["html"])) < 30):
-            ocr_result = extract(ocr_result, image_path = image_path)
+            _ = extract(ocr_result, image_path = image_path)
+            ocr_result = _ if _ != None else ocr_result["content"]["html"]
         else:
             ocr_result = ocr_result["content"]["html"]
         drug_info = self.extract_drug_info(ocr_result)

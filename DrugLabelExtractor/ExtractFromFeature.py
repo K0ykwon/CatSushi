@@ -12,6 +12,13 @@ from PIL import Image
 import numpy as np
 import requests
 from bs4 import BeautifulSoup
+model = models.efficientnet_b0(pretrained=True)
+model.fc = nn.Linear(model.classifier[1].in_features, 11)  # 11개의 클래스 (원형 ~ 기타)
+
+    # GPU 사용 가능 여부 확인
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model.to(device)
+model.load_state_dict(torch.load("./DrugLabelExtractor/models/best_model.pth", map_location=device))
 
 class PillIdentifiers(BaseModel):
     identifiers: List[str]
@@ -24,7 +31,10 @@ def extract(identifiers:str, image_path: str = "./download.jpeg") -> str:
     response = requests.get(url, headers=headers)
 
     soup = BeautifulSoup(response.text, 'html.parser')
-    return soup.select_one('#hview-container > div').text
+    if soup.select_one('#hview-container > div') != None:
+        return soup.select_one('#hview-container > div').text
+    else:
+        return ""
 
 def getinfolink(identifiers:str, image_path: str = "./download.jpeg") -> str:
     headers = {
@@ -50,11 +60,12 @@ def getinfolink(identifiers:str, image_path: str = "./download.jpeg") -> str:
         response = requests.get(url, headers=headers)
         soup = BeautifulSoup(response.text, 'html.parser')
         link = soup.select_one('#list > li:nth-child(1) > div > a')
-        href = link.get('href')
+        
         if link:
+            href = link.get('href')
             return href
         else:
-            return None
+            return ""
 
 def generate_link(identifier: str, image_path: str = "./download.jpeg", status = 0) -> str:
     if status == 0: return f"https://m.terms.naver.com/medicineSearch.naver?mode=exteriorSearch&query=&so=st4.dsc&shape={extract_from_feature_from_image(image_path)}&color=&dosageForm=&divisionLine=&identifier={extract_from_feature(identifier)}"
@@ -100,19 +111,13 @@ def extract_from_feature(prompt: str) -> PillIdentifiers:
     return ('%2520'.join(PillIdentifiers(**result).identifiers))
 
 def extract_from_feature_from_image(image_path: str = "./download.jpeg") -> str:
-    model = models.efficientnet_b0(pretrained=True)
-    model.fc = nn.Linear(model.classifier[1].in_features, 11)  # 11개의 클래스 (원형 ~ 기타)
-
-    # GPU 사용 가능 여부 확인
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model.to(device)
-    model.load_state_dict(torch.load("./DrugLabelExtractor/models/best_model.pth", map_location=device))
+    
     def predict_image(image_path):
         transform = transforms.Compose([
             transforms.Resize((224, 224)),
             transforms.ToTensor()
         ])
-        image = Image.open(image_path)
+        image = Image.open(image_path).convert("RGB")
         image = transform(add_noise_to_background(image)).unsqueeze(0).to(device)  # 이미지를 텐서로 변환하고 배치 차원 추가
         
         with torch.no_grad():  # 예측 시 기울기 계산을 하지 않음
