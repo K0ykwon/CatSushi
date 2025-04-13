@@ -11,8 +11,6 @@ pydantic
 typing
 Pillow
 numpy
-re
 cv2
-base64
 gtts
 audio_recorder_streamlit
