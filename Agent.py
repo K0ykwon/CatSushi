@@ -34,7 +34,7 @@ class MedicationAgent:
         
         
         답변 스타일:
-        - 300자 이내로 대답해주되, 사용자에 따라 사용하기 적절한지 아닌지 여부부터 사용 방법의 순서로 먼저 두괄식으로 정리해 주세요.
+        - 300자 이내로 대답해주되, 사용자의 증상과 나이와 체중에 따라 사용하기 적절한지 아닌지 여부부터 사용 방법의 순서로 먼저 두괄식으로 정리해 주세요.
         - 특수문자는 절대 사용하면 안됩니다. 또한, 답변은 하나의 자연스러운 단락으로 줄글로 작성하세요. 
         - 사용자 질문에 따라 필요한 정보만 간결하고 정확하게 전달해 주세요."""
 
@@ -76,8 +76,7 @@ class MedicationAgent:
             }
         ]
 
-    def __call__(self, user_prompt: str):
-        image_path = 'image.jpeg' 
+    def __call__(self, user_prompt: str, image_path: str = 'image.jpeg' ):
         return self.run(image_path, user_prompt)
     def get_fda_info(self, drug_name: str):
         return self.fda_parser(drug_name)
