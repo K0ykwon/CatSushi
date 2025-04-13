@@ -4,7 +4,10 @@ import requests
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
-
+import cv2
+import numpy as np
+import re
+from .ExtractFromFeature import extract
 
 class DrugLabelExtractor:
     def __init__(self):
@@ -21,17 +24,39 @@ class DrugLabelExtractor:
 
     def __call__(self, image_path: str) -> dict:
         ocr_result = self.extract_from_file(image_path)
+        if(len(re.sub(r"<[^>]+>", "", ocr_result["content"]["html"])) < 30):
+            ocr_result = extract(ocr_result, image_path = image_path)
+        else:
+            ocr_result = ocr_result["content"]["html"]
         drug_info = self.extract_drug_info(ocr_result)
         return drug_info
+    
+    def preprocess_image(self, image_path: str) -> str:
+        img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+        
+        # CLAHE (Contrast Limited Adaptive Histogram Equalization) 적용
+        clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+        contrast_img = clahe.apply(img)
 
+        # 임계값 처리 (선택적으로 적용)
+        _, thresh_img = cv2.threshold(contrast_img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+
+        # 임시 파일로 저장
+        processed_path = image_path.replace(".", "_processed.")
+        cv2.imwrite(processed_path, thresh_img)
+
+        return processed_path
+    
     def encode_img_to_base64(self, img_path: str) -> str:
-        with open(img_path, 'rb') as img_file:
+        processed_path = self.preprocess_image(img_path)
+        with open(processed_path, 'rb') as img_file:
             img_bytes = img_file.read()
             base64_data = base64.b64encode(img_bytes).decode('utf-8')
             return base64_data
 
     def extract_from_file(self, image_path: str) -> dict:
         files = {"document": open(image_path, "rb")}
+        
         data = {
             "ocr": "force",
             "base64_encoding": "['table']",
@@ -47,7 +72,7 @@ class DrugLabelExtractor:
         return response.json()
 
     def extract_drug_info(self, ocr_result: dict) -> dict:
-        html_content = ocr_result["content"]["html"]
+        
         
         response = self.openai_client.chat.completions.create(
             model="gpt-3.5-turbo",
@@ -77,7 +102,7 @@ class DrugLabelExtractor:
                 },
                 {
                     "role": "user",
-                    "content": html_content
+                    "content": ocr_result
                 }
             ],
             functions=[

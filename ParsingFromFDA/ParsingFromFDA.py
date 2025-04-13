@@ -21,7 +21,6 @@ class ParsingFromFDA:
                 'limit': 1
             }
             
-            print(f"API 요청 URL: {self.base_url}?search={params['search']}")
             
             response = requests.get(
                 self.base_url,
@@ -29,7 +28,6 @@ class ParsingFromFDA:
                 timeout=10
             )
             
-            print(f"응답 상태 코드: {response.status_code}")
             
             if response.status_code == 200:
                 data = response.json()
@@ -44,15 +42,11 @@ class ParsingFromFDA:
                     if data.get('results'):
                         return self._parse_drug_info(data['results'][0])
                     else:
-                        print(f"'{drug_name}'에 대한 정보를 찾을 수 없습니다.")
                         return None
             else:
-                print(f"API 오류: {response.status_code}")
-                print(f"응답 내용: {response.text}")
                 return None
                 
         except Exception as e:
-            print(f"오류 발생: {e}")
             return None
             
     def _parse_ingredients(self, ingredients: list) -> list:
@@ -107,7 +101,6 @@ class ParsingFromFDA:
             return result["ingredients"]
             
         except Exception as e:
-            print(f"성분 파싱 오류: {e}")
             return [[ing] for ing in ingredients if ing != 'Unknown']
             
     def _parse_drug_info(self, drug_data: dict) -> dict:
@@ -120,7 +113,6 @@ class ParsingFromFDA:
             }
             return info
         except Exception as e:
-            print(f"데이터 파싱 오류: {e}")
             return None
 
     def __call__(self, drug_name: str) -> dict:

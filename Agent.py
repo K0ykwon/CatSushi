@@ -20,7 +20,7 @@ class MedicationAgent:
         self.drug_label_extractor = DrugLabelExtractor()
 
         self.system_prompt = """
-        당신은 전문 약사이자 의료 지식 전문가입니다. 아래 정보를 기반으로 사용자에게 약물 사용이 적절한지에 대한 정보를 제공해 주세요.
+        당신은 전문 약사이자 의료 지식 전문가입니다. 아래 정보를 기반으로 사용자의 아이에게 약물 사용이 적절한지에 대한 정보를 제공해 주세요.
         - 기본적으로 extracted_info를 사용해 정보를 구성해 주세요.
         - 만약 빠진 정보나 추가적으로 필요한 정보가 있으면 다음과 같이 두 함수를 자유롭게 이용할 수 있습니다.
 
@@ -77,7 +77,7 @@ class MedicationAgent:
         ]
 
     def __call__(self, user_prompt: str):
-        image_path = 'image.png' 
+        image_path = 'image.jpeg' 
         return self.run(image_path, user_prompt)
     def get_fda_info(self, drug_name: str):
         return self.fda_parser(drug_name)
