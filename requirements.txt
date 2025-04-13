@@ -1,5 +1,5 @@
 json
-urllib.parse
+urllib
 openai
 dotenv
 requests
