@@ -113,7 +113,7 @@ if st.session_state.new_question:
                 full_prompt += f"현재 입력: {item['question']}\n"
 
         with st.spinner("💊 Agent가 응답 중..."):
-            answer = agent("과거의 입력은 참고만 하되, 현재의 입력에 명확하게 답변해주세요."+full_prompt, image_path="image.png")
+            answer = agent("과거의 입력은 참고만 하되, 현재의 입력에 명확하게 답변해주세요.\n"+full_prompt, image_path="image.png")
             st.session_state.chat_history[-1]["answer"] = answer
 
         st.text_area("🤖 Agent 응답", answer, height=200)
