@@ -19,7 +19,7 @@ model.fc = nn.Linear(model.classifier[1].in_features, 11)  # 11개의 클래스 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 model.load_state_dict(torch.load("./DrugLabelExtractor/models/best_model.pth", map_location=device))
-
+model.eval()
 class PillIdentifiers(BaseModel):
     identifiers: List[str]
 
