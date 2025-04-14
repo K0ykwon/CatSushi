@@ -101,7 +101,7 @@ class MedicationAgent:
         """
 
         response = self.client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4o-mini",
             messages=[{"role": "user", "content": prompt + "300토큰 이내로 대답해줘."}],
             max_tokens=300,
             temperature=0.7
@@ -127,7 +127,7 @@ class MedicationAgent:
         ]
 
         response = self.client.chat.completions.create(
-            model="gpt-4",
+            model="gpt-4o-mini",
             messages=messages,
             functions=self.functions,
             function_call="auto"
@@ -147,7 +147,7 @@ class MedicationAgent:
                 result = {}
 
             follow_up = self.client.chat.completions.create(
-                model="gpt-3.5-turbo",
+                model="gpt-4o-mini",
                 messages=[*messages, {"role": "function", "name": function_name, "content": json.dumps(result, ensure_ascii=False)}]
             )
 
