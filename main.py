@@ -14,7 +14,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=api_key)
 agent = MedicationAgent()
 
-st.title("💊 DrugVision")
+st.title("💊 고양이 초밥")
 
 # 세션 상태 초기화 (세션이 새로 시작된 경우)
 if "chat_history" not in st.session_state:
