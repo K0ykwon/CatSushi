@@ -93,7 +93,7 @@ if st.session_state.new_question:
             "{raw_text}"
             """
             gpt_response = client.chat.completions.create(
-                model="gpt-3.5-turbo",
+                model="gpt-4o-mini",
                 messages=[
                     {"role": "system", "content": "당신은 모호한 질문을 명확히 정리하는 조수입니다."},
                     {"role": "user", "content": clarify_prompt}
