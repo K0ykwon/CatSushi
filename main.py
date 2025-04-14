@@ -108,9 +108,9 @@ if st.session_state.new_question:
         full_prompt = ""
         for i, item in enumerate(st.session_state.chat_history):
             if i < st.session_state.question_count:  # 과거 질문만 '과거 질문'으로 레이블링
-                full_prompt += f"과거 입력 {i+1}: {item['question']}\n"
+                full_prompt += f"과거 입력 {i+1}: {item['question']}\n 현재 입력 {i+1}: {item['answer']}\n"
             else:
-                full_prompt += f"현재 입력력: {item['question']}\n"
+                full_prompt += f"현재 입력: {item['question']}\n"
 
         with st.spinner("💊 Agent가 응답 중..."):
             answer = agent("과거의 입력은 참고만 하되, 현재의 입력에 명확하게 답변해주세요."+full_prompt, image_path="image.png")
