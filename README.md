@@ -75,9 +75,9 @@ By receiving an image of the medicine and a spoken question, the system analyzes
 
 ## ⚙️ Optimization Highlights
 
-- 🔈 Enhanced speech recognition via Whisper STT
-- 🧠 Clearer and safer queries through GPT-4.0 question refinement
-- 📷 High OCR accuracy using UpstageAI for reliable medicine info extraction
+- 🔈 Enhanced speech recognition via **Whisper STT**
+- 🧠 Clearer and safer queries through **GPT-4.0 API**
+- 📷 High OCR accuracy using **UpstageAI** for reliable medicine info extraction
 - 🧭 Context-aware answers using previous conversation history
-- 🔁 Persistent session with Streamlit SessionState (no data loss on refresh)
+- 🔁 Persistent session with **Streamlit SessionState**
 - 🗣️ Instant audio feedback for a more accessible user experience
