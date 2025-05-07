@@ -1,82 +1,83 @@
 # 🐱🍣 Cat Sushi  
-**시각장애인 부모를 위한 아동 약 복용 도우미 AI**
+**AI-Powered Medication Assistant for Visually Impaired Parents**
 
-Cat Sushi는 시각장애인 부모가 자녀의 건강 상태에 따라 약 복용 여부를 쉽게 판단할 수 있도록 돕는 **AI 기반 인터랙티브 어시스턴트**입니다.  
-의약품 사진과 사용자 음성을 입력하면, AI가 약 성분과 자녀 상태를 바탕으로 **복용 가능 여부, 복용량, 주의사항** 등을 분석해 **음성과 텍스트로 안내**합니다.
+Cat Sushi is an **AI-based interactive assistant** designed to help visually impaired parents safely determine whether their child can take a given medication.  
+By receiving an image of the medicine and a spoken question, the system analyzes both the medication content and the child’s condition to provide guidance on **safety, dosage, and precautions** — via **text and voice**.
 
-[👉 데모 바로가기](https://cat-sushi.streamlit.app/)
-
----
-
-## 🧠 사용 기술
-
-| 항목            | 기술명                                       |
-|----------------|----------------------------------------------|
-| 언어 모델       | **OpenAI GPT-4.0** (질문 재구성 및 가이드 생성) |
-| STT            | **Whisper** (고품질 음성 텍스트 변환)         |
-| TTS            | pyttsx3 등 (음성 응답 제공)                  |
-| OCR            | **UpstageAI OCR API** (약 이미지 정보 추출)   |
-| 외부 정보 탐색  | Drug.com, WHO 크롤링                         |
-| 웹 프레임워크   | Streamlit                                    |
-| 세션 상태 관리 | Streamlit SessionState                       |
+[👉 Try the Demo](https://cat-sushi.streamlit.app/)
 
 ---
 
-## 🎯 프로젝트 목표
+## 🧠 Technologies Used
 
-- 시각장애인 부모가 자녀의 증상에 따라 **안전하게 약을 복용**시킬 수 있도록 도움 제공
-- 복잡하고 모호한 사용자 질문을 **AI가 재구성**하여 정확한 의미 파악
-- 자녀의 건강 정보와 약 성분 정보를 **통합 분석**해 복용 여부 자동 판단
-
----
-
-## 📲 주요 기능
-
-### 🗣️ 1. 음성 입력 → STT → 질문 정제
-- Whisper로 **고품질 음성 텍스트 변환**
-- GPT-4.0이 사용자의 말을 **더 명확하고 간결한 질문**으로 재구성
-- 자녀 정보(나이, 체중, 증상, 알레르기 여부)를 **자동 추출**
-
-### 📷 2. 의약품 사진 인식
-- 사용자가 업로드한 의약품 사진을 **UpstageAI OCR API**로 분석
-- 성분명, 복용법, 주의사항 등 약물 정보를 자동 추출
-
-### 🧾 3. AI 기반 복용 가이드 제공
-- 자녀 상태와 약 성분을 종합 분석해 **복용 가능 여부** 판단
-- 필요 시 **외부 약물 정보(Drug.com, WHO 등)** 탐색하여 가이드 강화
-- **텍스트 + 음성(TTS)** 응답 제공 → 시각장애인 접근성 고려
+| Component         | Technology                                 |
+|-------------------|---------------------------------------------|
+| Language Model     | **OpenAI GPT-4.0** (question refinement & guidance generation) |
+| Speech-to-Text     | **Whisper** (high-quality voice-to-text conversion) |
+| Text-to-Speech     | pyttsx3 or equivalent (audio feedback generation) |
+| OCR                | **UpstageAI OCR API** (extracting info from medicine image) |
+| External Info Search | Crawling Drug.com, WHO, etc.             |
+| Web Framework      | Streamlit                                  |
+| Session Management | Streamlit SessionState                     |
 
 ---
 
-## 🗂️ 시스템 구성도
+## 🎯 Project Goals
+
+- Enable visually impaired parents to **safely administer medication** to their children based on symptoms.
+- Use AI to **clarify and restructure vague or complex user questions**.
+- Combine child health information and medicine data for **automated medication guidance**.
+
+---
+
+## 📲 Core Features
+
+### 🗣️ 1. Voice Input → STT → Question Refinement
+- Converts speech to text using **Whisper** for high accuracy.
+- Refines and restructures questions using **GPT-4.0** for clarity.
+- Automatically extracts child information: **age, weight, symptoms, allergies**.
+
+### 📷 2. Medicine Image Recognition
+- Users upload a photo of the medicine.
+- **UpstageAI OCR API** is used to extract key info: **active ingredients, dosage instructions, warnings**.
+
+### 🧾 3. AI-Based Medication Guidance
+- Combines child data and drug information to determine **suitability and dosage**.
+- Optionally consults **external databases** (e.g. Drug.com, WHO) to enrich guidance.
+- Returns answers in both **text and voice (TTS)** formats for accessibility.
+
+---
+
+## 🗂️ System Architecture
 
 ```plaintext
-[사용자 입력]
-  ├── 음성 (질문, 아이 정보)
-  └── 약 사진
+[User Input]
+  ├── Voice (question, child details)
+  └── Medicine image
 
     ↓
 
-[처리 파이프라인]
-  ├── Whisper STT: 음성 → 텍스트
-  ├── GPT-4: 질문 정제 및 정보 구조화
-  ├── Upstage OCR: 약 이미지 분석
-  ├── 외부 약물 데이터 크롤링
-  └── 세션 상태 관리 (Streamlit)
+[Processing Pipeline]
+  ├── Whisper STT: Converts voice to text
+  ├── GPT-4: Refines question and structures input
+  ├── Upstage OCR: Extracts info from image
+  ├── External drug info crawling
+  └── Session management (Streamlit)
 
     ↓
 
-[출력 결과]
-  ├── 자녀 상태에 맞는 복용 가이드 생성
-  ├── 약 복용 가능 여부 안내
-  └── TTS 음성 응답 제공
+[System Output]
+  ├── Medication guide tailored to child’s condition
+  ├── Safety and dosage recommendation
+  └── Audio response via TTS
+
 ```
 
-## ⚙️ 최적화 포인트
+## ⚙️ Optimization Highlights
 
-- 🔈 Whisper STT로 음성 인식 정확도 향상
-- 🧠 GPT-4.0 기반 질문 명료화 → 모호한 질문도 처리 가능
-- 📷 OCR 정확도 강화 (UpstageAI API) → 약 정보 신뢰도 확보
-- 🧭 과거 질문 이력 포함한 문맥 인식 응답
-- 🔁 Streamlit 세션 유지 → 새로고침해도 정보 보존
-- 🗣️ 즉시 음성 응답 제공 → 시각장애인 친화적 UX 구현
+- 🔈 Enhanced speech recognition via Whisper STT
+- 🧠 Clearer and safer queries through GPT-4.0 question refinement
+- 📷 High OCR accuracy using UpstageAI for reliable medicine info extraction
+- 🧭 Context-aware answers using previous conversation history
+- 🔁 Persistent session with Streamlit SessionState (no data loss on refresh)
+- 🗣️ Instant audio feedback for a more accessible user experience
