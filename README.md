@@ -49,6 +49,7 @@ By receiving an image of the medicine and a spoken question, the system analyzes
 ---
 
 ## 🗂️ System Architecture
+![System Diagram](diagram.png)
 
 ```plaintext
 [User Input]
