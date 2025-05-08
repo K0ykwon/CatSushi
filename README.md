@@ -14,7 +14,7 @@ By receiving an image of the medicine and a spoken question, the system analyzes
 |-------------------|---------------------------------------------|
 | Language Model     | **OpenAI GPT-4.0** (question refinement & guidance generation) |
 | Speech-to-Text     | **Whisper** (high-quality voice-to-text conversion) |
-| Text-to-Speech     | pyttsx3 or equivalent (audio feedback generation) |
+| Text-to-Speech     | gtts module (audio feedback generation) |
 | OCR                | **UpstageAI OCR API** (extracting info from medicine image) |
 | External Info Search | Crawling Drug.com, WHO, etc.             |
 | Web Framework      | Streamlit                                  |
